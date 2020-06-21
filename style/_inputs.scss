@@ -1,0 +1,100 @@
+.input-box {
+    --input-bg-color: white;
+    --input-border-color: #ff5700;
+    --label-color-a: #858585;
+    --label-color: #ff5700af;
+    position: relative;
+    font-family: var(--font-family-head);
+    input {
+        position: relative;
+        outline: none;
+        background: var(--input-bg-color);
+        width: 200px;
+        height: 38px;
+        border: 1px solid var(--input-border-color);
+        border-radius: 0.25rem;
+        padding: 0rem 2rem 0rem 0.75rem;
+        font-size: 1rem;
+        &:focus {
+            border: 1.5px solid var(--input-border-color);
+        }
+        &:focus ~ label {
+            top: -5px;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: var(--label-color);
+        }
+    }
+    label {
+        padding: 0rem 0.25rem;
+        position: absolute;
+        top: 11px;
+        left: 0.75rem;
+        user-select: none;
+        pointer-events: none;
+        font-size: 1rem;
+        background-color: var(--input-bg-color);
+        color: var(--label-color-a);
+        transition: all 0.1s linear;
+    }
+}
+
+.input-box-icon {
+    input {
+        padding: 0rem 2rem 0rem 2.15rem;
+    }
+    label {
+        left: 2.15rem;
+    }
+    .input-icon {
+        content: "";
+        top: 11px;
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        background-color: #858585;
+        border-radius: 10px;
+    }
+    .left {
+        left: 9px;
+    }
+    .right {
+        right: 9px;
+    }
+}
+.error {
+    --error-message: "error message";
+    .input-icon {
+        content: "";
+        top: 11px;
+        right: 11px;
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 10px;
+    }
+    .right {
+        background-color: red;
+        right: 9px;
+    }
+
+    &::before {
+        position: absolute;
+        content: var(--error-message);
+        color: red;
+        font-size: 0.65rem;
+        bottom: -15px;
+        left: 0.75rem;
+    }
+}
+.counter {
+    --label-counter: "0/20";
+    &::after {
+        position: absolute;
+        content: var(--label-counter);
+        color: #858585;
+        font-size: 0.65rem;
+        bottom: -15px;
+        right: 0.75rem;
+    }
+}
