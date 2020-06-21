@@ -1,0 +1,64 @@
+:root {
+    --nav-bg: #ff5700;
+    --items-color: white;
+    --item-underline-color: white;
+    --nav-height: 56px;
+    --nav-padding: 0.5rem;
+    --nav-width: 100%;
+    --font-family-head: "Heebo", sans-serif;
+}
+@import "reset";
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.page-header {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    width: var(--nav-width);
+    height: var(--nav-height);
+    padding: 0.5rem 1rem;
+    background-color: var(--nav-bg);
+    .nav-brand {
+        width: 36px;
+        height: 36px;
+    }
+    .nav-button {
+        display: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 36px;
+        height: 36px;
+        outline: none;
+        background-color: transparent;
+        border: none;
+    }
+    @import "desktop-nav";
+    @import "mobile-nav";
+}
+@import "buttons";
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin: 0px auto;
+    padding: 20px 30px;
+}
+
+@media (max-width: 567px) {
+    .page-header .nav-button {
+        display: block;
+    }
+}

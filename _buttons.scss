@@ -1,0 +1,38 @@
+.btn {
+    --btn-bg-color: dodgerblue;
+    --btn-color: white;
+    height: 38px;
+    padding: 0px 1rem;
+    outline: none;
+    border: 0.1rem solid var(--btn-bg-color);
+    background-color: transparent;
+    color: var(--btn-bg-color);
+    border-radius: 0.25rem;
+    font-family: var(--font-family-head);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s linear;
+    margin-left: 1rem;
+    &:hover {
+        color: var(--btn-color);
+        background-color: var(--btn-bg-color);
+        border-color: var(--btn-bg-color);
+    }
+}
+
+.btn1 {
+    --btn-bg-color: #845ec2;
+    --btn-color: white;
+}
+.btn2 {
+    --btn-bg-color: #d65db1;
+    --btn-color: white;
+}
+.btn3 {
+    --btn-bg-color: #ff9671;
+    --btn-color: white;
+}
+.btn4 {
+    --btn-bg-color: #ffc75f;
+    --btn-color: white;
+}
