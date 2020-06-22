@@ -107,7 +107,16 @@
             <div class="input-icon right " id="pwd-visible"></div>
         </div>
     </div>
-
+    <div class="container">
+        <div class="hamburger">
+            <button class="nav-btn"></button>
+            <div class="nav-icon">
+                <div class="line up"></div>
+                <div class="line mid"></div>
+                <div class="line low"></div>
+            </div>
+        </div>
+    </div>
     <script defer>
         window.onload = shownav();
         window.onresize = shownav
@@ -165,7 +174,9 @@
                 })
             })
         }
-
+        const btn = document.querySelector('.nav-btn').onclick = e => {
+            e.target.parentElement.classList.toggle('open')
+        }
     </script>
 </body>
 

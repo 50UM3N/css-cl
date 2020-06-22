@@ -1,0 +1,50 @@
+.hamburger {
+    --nav-color: #1b1b1b;
+    --nav-width: 36px;
+    --nav-height: 36px;
+    position: relative;
+    height: var(--nav-height);
+    width: var(--nav-width);
+    .nav-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        outline: none;
+        border: none;
+        z-index: 1;
+    }
+    .line {
+        position: absolute;
+        height: 4px;
+        border-radius: 4px;
+        left: 2px;
+        width: calc(var(--nav-width) - 4px);
+        background: var(--nav-color);
+        transition: all 0.3s;
+    }
+    .up {
+        top: 4px;
+    }
+    .mid {
+        top: 16px;
+    }
+    .low {
+        bottom: 4px;
+    }
+}
+.open {
+    .up {
+        transform: translateY(12px) rotate(45deg);
+    }
+    .mid {
+        left: -10px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .low {
+        transform: translateY(-12px) rotate(-45deg);
+    }
+}
