@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style1.css">
     <title>mydesign</title>
     <title>mydesign</title>
 </head>
@@ -83,7 +82,7 @@
         <button class="btn btn4">BUTTON</button>
     </div>
     <div class="container">
-        <div class="input-box">
+        <div class="input-box ">
             <input type="text" name="username" required="required">
             <label for="username">Username</label>
             <div class="input-icon left"></div>
@@ -95,43 +94,17 @@
             <div class="input-icon left"></div>
             <div class="input-icon right"></div>
         </div>
-        <div class="input-box counter">
-            <input type="text" name="username" required="required">
+        <div class="input-box counter input-box-icon normal-icon ">
+            <input type="text" name="username" required="required" maxlength="20">
             <label for="username">Username</label>
             <div class="input-icon left"></div>
             <div class="input-icon right"></div>
         </div>
-        <div class="input-box  counter input-box-icon ">
-            <input type="text" name="username" required="required">
-            <label for="username">Username</label>
+        <div class="input-box counter input-box-icon password-icon normal-icon ">
+            <input type="password" name="password" id="password" required="required" id="cont">
+            <label for="username">Password</label>
             <div class="input-icon left"></div>
-            <div class="input-icon right"></div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="input-box">
-            <input type="text" name="username" required="required">
-            <label for="username">Username</label>
-            <div class="input-icon left"></div>
-            <div class="input-icon right"></div>
-        </div>
-        <div class="input-box error ">
-            <input type="text" name="username" required="required">
-            <label for="username">Username</label>
-            <div class="input-icon left"></div>
-            <div class="input-icon right"></div>
-        </div>
-        <div class="input-box  counter">
-            <input type="text" name="username" required="required">
-            <label for="username">Username</label>
-            <div class="input-icon left"></div>
-            <div class="input-icon right"></div>
-        </div>
-        <div class="input-box  counter input-box-icon ">
-            <input type="text" name="username" required="required">
-            <label for="username">Username</label>
-            <div class="input-icon left"></div>
-            <div class="input-icon right"></div>
+            <div class="input-icon right " id="pwd-visible"></div>
         </div>
     </div>
 
@@ -152,6 +125,47 @@
                 }
             })
         }
+
+        // password visible and password invisible 
+        const pwdShowBtn = document.getElementById('pwd-visible')
+        if (pwdShowBtn) {
+            pwdShowBtn.onclick = showPassword
+        }
+        function showPassword() {
+            pwdShowBtn.classList.toggle('not')
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
+
+        // counter
+        const counters = document.querySelectorAll('.counter');
+        if (counters) {
+            counters.forEach(counter => {
+                counter.addEventListener('input', e => {
+                    counter.style.setProperty('--label-counter', `"${counter.querySelector('input').value.length}/20"`)
+                })
+            })
+        }
+        const secs = document.querySelectorAll('.input-box')
+        if (secs) {
+            secs.forEach(sec => {
+                console.log(sec.classList)
+                sec.querySelector('input').addEventListener('input', e => {
+                    if (e.data) {
+                        sec.classList.add('over')
+                    }
+                    else {
+                        sec.classList.remove('over')
+                    }
+                })
+            })
+        }
+
     </script>
 </body>
 
