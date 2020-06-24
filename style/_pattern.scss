@@ -1,0 +1,67 @@
+.pattern {
+    --pattern-background-color: #14213d;
+    --pattern-practicals-color: #fca311;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--pattern-background-color);
+    overflow: hidden;
+    align-items: center;
+    .object {
+        margin: 2rem;
+        float: left;
+        position: relative;
+        height: 1rem;
+        width: 1rem;
+        background-color: var(--pattern-practicals-color);
+        clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        animation: rotateShape 5s infinite linear;
+        &:nth-child(2n + 1) {
+            clip-path: polygon(
+                20% 0%,
+                0% 20%,
+                30% 50%,
+                0% 80%,
+                20% 100%,
+                50% 70%,
+                80% 100%,
+                100% 80%,
+                70% 50%,
+                100% 20%,
+                80% 0%,
+                50% 30%
+            );
+            animation-direction: reverse;
+        }
+        &:nth-child(3n + 1) {
+            clip-path: polygon(
+                0% 0%,
+                0% 100%,
+                25% 100%,
+                25% 25%,
+                75% 25%,
+                75% 75%,
+                25% 75%,
+                25% 100%,
+                100% 100%,
+                100% 0%
+            );
+            animation-direction: reverse;
+        }
+        &:nth-child(4n + 1) {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+    }
+}
+
+@keyframes rotateShape {
+    form {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

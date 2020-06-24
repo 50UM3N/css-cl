@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background-color: #14213d;
+        }
+
+        .element {
+            position: absolute;
+            top: calc(25% - 5rem);
+            left: calc(50% - 5rem);
+            height: 10rem;
+            width: 10rem;
+            background-color: #fca311;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        }
+
+        .element:nth-child(2) {
+            top: calc(50% - 5rem);
+            left: calc(25% - 5rem);
+        }
+
+        .element:nth-child(3) {
+            top: calc(50% - 5rem);
+            left: calc(75% - 5rem);
+        }
+
+        .element:nth-child(4) {
+            top: calc(75% - 5rem);
+            left: calc(50% - 5rem);
+        }
+    </style>
+    <title>Parallax</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="element"></div>
+        <div class="element"></div>
+        <div class="element"></div>
+        <div class="element"></div>
+    </div>
+    <script>
+        document.addEventListener('mousemove', e => {
+            console.log(e)
+            var a = 10;
+            const elements = document.querySelectorAll('.element')
+            elements.forEach(element => {
+                element.style.transform = `translate(${(window.innerWidth - e.pageX * (a + 2.5)) / (a * 100)}px,${(window.innerWidth - e.pageY * (a + 2.5)) / (a * 100)}px )`
+                a = a + 2.5
+            })
+        })
+    </script>
+</body>
+
+</html>
